@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faktorial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #hasil {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #3b6efc;
+        }
+    </style>
+</head>
+<body>
+    <form id="submit">
+        <label for="number">Masukkan angka</label>
+        <input type="number" id="number" min="1">
+        <button type="button" onclick="hitungFaktorial()">Hitung</button>
+    </form>
+    <h3 id="hasil"></h3>
+    
+    <script>
+        function faktorial(num){
+            if (num == 1){
+                return num;
+            }
+            return num * faktorial(num - 1);
+        }
+
+        function hitungFaktorial(){
+            let number = parseInt(document.getElementById('number').value);
+            
+            if (number <= 0 ){
+                document.getElementById('hasil').innerText = "Nilai harus > 0!";
+            } else {
+                document.getElementById('hasil').innerText = `Hasil faktorial dari ${number} adalah: ` + faktorial(number);
+            }
+        }
+    </script>
+</body>
+</html>
